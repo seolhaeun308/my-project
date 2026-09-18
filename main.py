@@ -82,7 +82,7 @@ color_discrete_map = {
     "38% 이상": "#B30000",
 }
 
-fig = px.choropleth_mapbox(
+fig = px.choropleth_map(
     df_sigungu,
     geojson=geojson_data,
     locations="sigungu_code",
@@ -92,8 +92,8 @@ fig = px.choropleth_mapbox(
     category_orders={"고령화율_구간": labels},
     hover_name="시군구",
     hover_data={"시도": True, "고령화율": ":.2f%", "sigungu_code": False, "고령화율_구간": False},
-    mapbox_style="white-bg",  # 배경 타일 없이 경계선만 표시
-    center={"lat": 35.9, "lon": 127.8},  # 대한민국 중심 좌표
+    map_style="white-bg",  # mapbox_style 대신 map_style로 변경
+    center={"lat": 35.9, "lon": 127.8},
     zoom=6.2,
     opacity=0.8,
 )
